@@ -144,7 +144,7 @@ Use Math.random to determine the computers choice (Math.random gives a random nu
 HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 
 Use the game function below to do the following:
-1. Receive 2 parameters the user's choice and the computer's choice
+1. Receive 2 parameters: the user's choice, and the computer's choice
 2. Return whether the user won, lost, or tied based on these rules of the game described below - the strings returned need to match the strings below exactly.
  - win should return "you win!"
  - lose should return "you lose!"
@@ -154,9 +154,37 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
 function game(user, computer) {
-  /*add your code here*/
+  // Computer Chose Rock
+  if (computer === "rock") {
+    if (user === "rock") {
+      return "it's a tie";
+    } else if (user === "paper") {
+      return "you win!";
+    } else {
+      return "you lose!";
+    }
+  }
+  // Computer Chose Paper
+  if (computer === "paper") {
+    if (user === "rock") {
+      return "you lose!";
+    } else if (user === "paper") {
+      return "it's a tie";
+    } else {
+      return "you win!";
+    }
+  }
+  // Computer Chose Scissors
+  if (computer === "scissors") {
+    if (user === "rock") {
+      return "you win!";
+    } else if (user === "paper") {
+      return "you lose!";
+    } else {
+      return "it's a tie";
+    }
+  }
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
