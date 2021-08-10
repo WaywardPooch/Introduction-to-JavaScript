@@ -282,8 +282,23 @@ HINT - you may need to study tomorrow's content on arrays
 HINT - try looking up the .includes() method
 */
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(word) {
+  let numberOfLettersInWord = word.length;
+  let vowelCount = 0;
+  for (let index = 0; index < numberOfLettersInWord; index++) {
+    if (word.charAt(index) === "a" || word.charAt(index) === "A") {
+      vowelCount++;
+    } else if (word.charAt(index) === "e" || word.charAt(index) === "E") {
+      vowelCount++;
+    } else if (word.charAt(index) === "i" || word.charAt(index) === "I") {
+      vowelCount++;
+    } else if (word.charAt(index) === "o" || word.charAt(index) === "O") {
+      vowelCount++;
+    } else if (word.charAt(index) === "u" || word.charAt(index) === "U") {
+      vowelCount++;
+    }
+  }
+  return vowelCount;
 }
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
