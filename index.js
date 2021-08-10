@@ -227,8 +227,8 @@ Using the annoyingSong function below do the following:
 */
 
 function annoyingSong(startingNumber) {
-  var bottles = startingNumber;
-  var bottlesMinusOne = startingNumber - 1;
+  let bottles = startingNumber;
+  let bottlesMinusOne = startingNumber - 1;
   for (bottles = startingNumber; bottles > 0; bottles--) {
     bottlesMinusOne = bottles - 1;
     return (
