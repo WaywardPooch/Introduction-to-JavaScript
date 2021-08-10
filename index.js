@@ -155,6 +155,7 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+let computerChoice = Math.floor(Math.random(3));
 function game(user, computer) {
   // Computer Chose Rock
   if (computer === "rock") {
