@@ -19,8 +19,10 @@ Do the following:
 
    HINT: no function required
 */
-
-
+const votingAge = 21;
+if (votingAge >= 18) {
+  console.log(true);
+}
 
 /*
 Task 1b - Values
@@ -32,10 +34,12 @@ Do the following:
 
    HINT: no function required
 */
-
-
-
-
+let var1 = 1;
+let var2 = 2;
+if (var1 === 1) {
+  var1 = var2;
+}
+console.log(var1);
 
 /*
 Task 1c - Convert Strings to Numbers
@@ -47,9 +51,9 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
-
+let myNumString = "1999";
+myNumString = parseInt(myNumString);
+console.log(myNumString);
 
 /*
 Task 1d - Multiply
@@ -59,12 +63,11 @@ Do the following:
    2. Receive the parameters: a and b
    3. Multiply a and b and return the answer
 */
-
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a, b) {
+  const product = a * b;
+  return product;
 }
-
-
+console.log(multiply(5, 5));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -76,11 +79,10 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age) {
+  const ageInDogYears = age * 7;
+  return ageInDogYears;
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -107,13 +109,30 @@ Puppies less than 1 year
    7 - 12 months 4% of their body weight
   
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
+*/
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(weight, age) {
+  const isPuppy = age < 1;
+  if (isPuppy) {
+    if (age < 0.333) {
+      return weight * 0.1;
+    } else if (age >= 0.333 && age < 0.583) {
+      return weight * 0.05;
+    } else {
+      return weight * 0.04;
+    }
+  } else {
+    if (weight < 6) {
+      return weight * 0.05;
+    } else if (weight >= 6 && weight < 10) {
+      return weight * 0.04;
+    } else if (weight >= 10 && weight < 15) {
+      return weight * 0.03;
+    } else {
+      return weight * 0.02;
+    }
+  }
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -125,7 +144,7 @@ Use Math.random to determine the computers choice (Math.random gives a random nu
 HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 
 Use the game function below to do the following:
-1. Receive 2 parameters the user's choice and the computer's choice
+1. Receive 2 parameters: the user's choice, and the computer's choice
 2. Return whether the user won, lost, or tied based on these rules of the game described below - the strings returned need to match the strings below exactly.
  - win should return "you win!"
  - lose should return "you lose!"
@@ -136,16 +155,44 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-  /*add your code here*/
+let computerChoice = Math.floor(Math.random(3));
+function game(user, computer) {
+  // Computer Chose Rock
+  if (computer === "rock") {
+    if (user === "rock") {
+      return "it's a tie";
+    } else if (user === "paper") {
+      return "you win!";
+    } else {
+      return "you lose!";
+    }
+  }
+  // Computer Chose Paper
+  else if (computer === "paper") {
+    if (user === "rock") {
+      return "you lose!";
+    } else if (user === "paper") {
+      return "it's a tie";
+    } else {
+      return "you win!";
+    }
+  }
+  // Computer Chose Scissors
+  else {
+    if (user === "rock") {
+      return "you win!";
+    } else if (user === "paper") {
+      return "you lose!";
+    } else {
+      return "it's a tie";
+    }
+  }
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
-//Metric Converter 
-//Task 5a - KM to Miles 
+//Metric Converter
+//Task 5a - KM to Miles
 /*
 Using the miles function below do the following:
 1. Receive a number of kilometers
@@ -153,11 +200,9 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers) {
+  return kilometers * 0.621371;
 }
-
-
 
 //Task 5b - Feet to CM
 /*
@@ -167,11 +212,9 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(centimeters) {
+  return centimeters / 30.48;
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -183,10 +226,21 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(startingNumber) {
+  let bottles = startingNumber;
+  let bottlesMinusOne = startingNumber - 1;
+  for (bottles = startingNumber; bottles > 0; bottles--) {
+    bottlesMinusOne = bottles - 1;
+    return (
+      bottles.toString() +
+      " bottles of soda on the wall, " +
+      bottles.toString() +
+      " bottles of soda, take one down pass it around " +
+      bottlesMinusOne.toString() +
+      " bottles of soda on the wall"
+    );
+  }
 }
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -203,11 +257,19 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score) {
+  if (score > 89) {
+    return "you got an A";
+  } else if (score > 79 && score < 90) {
+    return "you got a B";
+  } else if (score > 69 && score < 80) {
+    return "you got a C";
+  } else if (score > 59 && score < 70) {
+    return "you got a D";
+  } else {
+    return "you got an F";
+  }
 }
-
-
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
@@ -221,17 +283,29 @@ HINT - you may need to study tomorrow's content on arrays
 HINT - try looking up the .includes() method
 */
 
-
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
+function vowelCounter(word) {
+  let numberOfLettersInWord = word.length;
+  let vowelCount = 0;
+  for (let index = 0; index < numberOfLettersInWord; index++) {
+    if (word.charAt(index) === "a" || word.charAt(index) === "A") {
+      vowelCount++;
+    } else if (word.charAt(index) === "e" || word.charAt(index) === "E") {
+      vowelCount++;
+    } else if (word.charAt(index) === "i" || word.charAt(index) === "I") {
+      vowelCount++;
+    } else if (word.charAt(index) === "o" || word.charAt(index) === "O") {
+      vowelCount++;
+    } else if (word.charAt(index) === "u" || word.charAt(index) === "U") {
+      vowelCount++;
+    }
+  }
+  return vowelCount;
 }
 
-
-
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-function foo(){
-  console.log('its working');
-  return 'bar';
+function foo() {
+  console.log("its working");
+  return "bar";
 }
 foo();
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
@@ -244,5 +318,5 @@ module.exports = {
   miles,
   feet,
   annoyingSong,
-  grade
-}
+  grade,
+};
